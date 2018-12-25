@@ -13891,7 +13891,7 @@ MonoBehaviour:
   m_OnlineScene: 
   m_SpawnPrefabs:
   - {fileID: 1692270655987330, guid: bd5cef60404067c4a930f70bf20e0ce0, type: 2}
-  - {fileID: 1576889981767106, guid: 03705f137de22764090d4728a2f5e5b3, type: 2}
+  - {fileID: 1140041270423564, guid: 5bd03db6d2c98904286036b8ee26ae24, type: 2}
   m_CustomConfig: 1
   m_MaxConnections: 20
   m_ConnectionConfig:
@@ -32443,8 +32443,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1890441916}
-  m_LocalRotation: {x: -0.13106973, y: 0.018392714, z: 0.360324, w: -0.92339003}
-  m_LocalPosition: {x: 232.96378, y: -69.270996, z: -193.69177}
+  m_LocalRotation: {x: -0.305904, y: 0.035345644, z: 0.1544287, w: -0.93878925}
+  m_LocalPosition: {x: 337.67526, y: -195.68997, z: 178.7201}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1850453503}
@@ -35950,8 +35950,8 @@ Camera:
   m_GameObject: {fileID: 2049942235}
   m_Enabled: 0
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -35966,7 +35966,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967279
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -35984,8 +35984,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049942235}
-  m_LocalRotation: {x: 0.097704366, y: -0.019959701, z: -0.60452217, w: 0.79032165}
-  m_LocalPosition: {x: 311.63504, y: -17.714111, z: -694.5961}
+  m_LocalRotation: {x: -0.32967457, y: 0.04576594, z: 0.17774753, w: -0.926081}
+  m_LocalPosition: {x: 334.6271, y: -206.12228, z: 187.14523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1850453503}
