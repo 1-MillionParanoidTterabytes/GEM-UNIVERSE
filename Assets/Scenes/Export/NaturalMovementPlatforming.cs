@@ -149,13 +149,37 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 
 	private string[] activeItem = Health.item0;
 
-
-
 	[Command]
 	void CmdMeshLarge(){
 		large = false;
 		gameObject.name = "large";
 		RpcLarge ();
+	}
+
+	[Command]
+	void CmdUpdateMeshLarge(){
+		gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+		RpcSendLarge();
+	}
+
+	[ClientRpc]
+	void RpcSendLarge(){
+		gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+	}
+
+	[ClientRpc]
+	void RpcSendSmall(){
+		gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+	}
+
+	[Command]
+	void CmdUpdateMeshSmall(){
+		gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+		RpcSendSmall();
 	}
 
 	void MakeLarge(bool visibility){
@@ -385,14 +409,26 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 
 		//THIS ONLY WORKS IF EVERYONE READYS AT THE SAME TIME, IF YOU DON'T THE CLIENT WILL NOT SEE THE PREVIOUS CLIENT'S MODEL
 		//THIS WORKS -> IT USES A COMMAND TO CHANGE THE 'large' BOOLEAN AND THEN THE SYNCVAR AND THE HOOK -- EXTEND IT TO 2 SIMPLE "MESHES"
-		if (playerSize2[GetIndex()] == "large" && gameObject.GetComponent<MeshRenderer> ().enabled == true && Time.time > waitTime2 && isLocalPlayer) {//this becomes true after 10 seconds
+		if (playerSize2[GetIndex()] == "large" && gameObject.GetComponent<MeshRenderer> ().enabled == true && Time.time > waitTime2 /*&& islocalplayer*/ ) {//this becomes true after 10 seconds
 			CmdMeshLarge();//This disables the default for the large character, now do another if that makes a different mesh get rendered as "true"
 		}
 
-		if (playerSize2[GetIndex()] == "small" && gameObject.GetComponent<MeshRenderer> ().enabled == true && Time.time > waitTime2 && isLocalPlayer) {//this becomes true after 10 seconds
+		if (playerSize2[GetIndex()] == "small" && gameObject.GetComponent<MeshRenderer> ().enabled == true && Time.time > waitTime2 /*&& isLocalplayer*/ ) {//this becomes true after 10 seconds
 			CmdMeshSmall();//This disables the default for the large character, now do another if that makes a different mesh get rendered as "true"
 		}
 
+		//THIS WORKS, JUST NEED AN IF CHECK SO THAT IT STOPS WHEN A PLAYER DIES
+		if (isLocalPlayer  ) {
+			if(largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled == true){
+				CmdUpdateMeshLarge (); //send mesh to everyone so they see it right
+			}
+		}
+
+		if (isLocalPlayer  ) {
+			if(smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled == true){
+				CmdUpdateMeshSmall (); //send mesh to everyone so they see it right
+			}
+		}
 			
 		//Camera Rotation THIS FOR SOME REASON DOESN'T SEEM TO BE NETWORKED
 		y = Input.GetAxis("Mouse X");
