@@ -78,11 +78,14 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	private GameObject smallMesh;
 	[SerializeField] 
 	private GameObject largeMesh;
+	[SerializeField]
+	private GameObject lifeGemNOTcritboxGem;
 
 	private Rect position;
 	private float waitTime;
 	private float waitTime2;
 	public static string[] playerSize2 = new string[20];
+	private bool pointless = true;
 
 	[SyncVar(hook = "MakeLarge")]
 	private bool large = true;
@@ -163,10 +166,21 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 		RpcSendLarge();
 	}
 
+	[Command]
+	void CmdRemoveMeshLarge(){
+		largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled = false; //make people see large mesh as your character
+		RpcSendRemovedLarge();
+	}
+
 	[ClientRpc]
 	void RpcSendLarge(){
 		gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+	}
+
+	[ClientRpc]
+	void RpcSendRemovedLarge(){
+		largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled = false; //make people see large mesh as your character
 	}
 
 	[ClientRpc]
@@ -175,11 +189,24 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 		smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
 	}
 
+	[ClientRpc]
+	void RpcSendRemovedSmall(){
+		gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled = false; //make people see large mesh as your character
+	}
+
 	[Command]
 	void CmdUpdateMeshSmall(){
 		gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
 		RpcSendSmall();
+	}
+
+	[Command]
+	void CmdRemoveMeshSmall(){
+		gameObject.GetComponent<MeshRenderer> ().enabled = false;
+		smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled = false; //make people see large mesh as your character
+		RpcSendRemovedSmall();
 	}
 
 	void MakeLarge(bool visibility){
@@ -417,19 +444,36 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			CmdMeshSmall();//This disables the default for the large character, now do another if that makes a different mesh get rendered as "true"
 		}
 
+		/*
 		//THIS WORKS, JUST NEED AN IF CHECK SO THAT IT STOPS WHEN A PLAYER DIES
-		if (isLocalPlayer  ) {
-			if(largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled == true){
+		if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == false) {
+			if (playerSize2[GetIndex()] == "large") {
 				CmdUpdateMeshLarge (); //send mesh to everyone so they see it right
 			}
-		}
+		} 
 
-		if (isLocalPlayer  ) {
-			if(smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled == true){
+		if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == true) {
+			if (playerSize2[GetIndex()] == "large") {
+				CmdRemoveMeshLarge (); //send mesh to everyone so they see it right
+			}
+		} 
+
+		//This print is attached to both players and does not work as each will print something different. Make it so these stop on player death. 
+		//Something like a "die" function that sends a variable into here when a player dies so that it stops updating the models.
+		print(lifeGemNOTcritboxGem.activeInHierarchy); // FALSE when gem does not appear; TRUE when it is visible
+
+		if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == false) {
+			if(playerSize2[GetIndex()] == "small"){
 				CmdUpdateMeshSmall (); //send mesh to everyone so they see it right
 			}
 		}
-			
+
+		if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == true) {
+			if(playerSize2[GetIndex()] == "small"){
+				CmdRemoveMeshSmall (); //send mesh to everyone so they see it right
+			}
+		}*/
+
 		//Camera Rotation THIS FOR SOME REASON DOESN'T SEEM TO BE NETWORKED
 		y = Input.GetAxis("Mouse X");
 		x = Input.GetAxis ("Mouse Y");

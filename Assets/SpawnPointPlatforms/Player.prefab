@@ -7437,6 +7437,7 @@ MonoBehaviour:
   listener: {fileID: 81769852964904720}
   smallMesh: {fileID: 1472380853775360}
   largeMesh: {fileID: 1787356586876794}
+  lifeGemNOTcritboxGem: {fileID: 1181434397204798}
 --- !u!114 &114596893086164784
 MonoBehaviour:
   m_ObjectHideFlags: 1
