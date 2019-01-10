@@ -81,6 +81,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	[SerializeField]
 	private GameObject lifeGemNOTcritboxGem;
 
+	private int numPlayers = 0;
 	private Rect position;
 	private float waitTime;
 	private float waitTime2;
@@ -163,6 +164,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	void CmdUpdateMeshLarge(){
 		gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+		gameObject.name = "large";
 		RpcSendLarge();
 	}
 
@@ -176,6 +178,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	void RpcSendLarge(){
 		gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		largeMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+		gameObject.name = "large";
 	}
 
 	[ClientRpc]
@@ -187,6 +190,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	void RpcSendSmall(){
 		gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+		gameObject.name = "small";
 	}
 
 	[ClientRpc]
@@ -199,6 +203,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	void CmdUpdateMeshSmall(){
 		gameObject.GetComponent<MeshRenderer> ().enabled = false;
 		smallMesh.GetComponent<SkinnedMeshRenderer> ().enabled = true; //make people see large mesh as your character
+		gameObject.name = "small";
 		RpcSendSmall();
 	}
 
@@ -253,7 +258,6 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			listener.enabled = false;
 			//bulletSpawn.SetActive (false);
 			//bulletSpawn2.SetActive (false);
-
 			return;
 		}
 
@@ -444,35 +448,37 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			CmdMeshSmall();//This disables the default for the large character, now do another if that makes a different mesh get rendered as "true"
 		}
 
-		/*
+		print (GameObject.FindGameObjectsWithTag ("Player").Length > numPlayers);
+		if(GameObject.FindGameObjectsWithTag ("Player").Length > numPlayers){
 		//THIS WORKS, JUST NEED AN IF CHECK SO THAT IT STOPS WHEN A PLAYER DIES
-		if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == false) {
-			if (playerSize2[GetIndex()] == "large") {
-				CmdUpdateMeshLarge (); //send mesh to everyone so they see it right
-			}
-		} 
+			if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == false) {
+				if (playerSize2[GetIndex()] == "large") {
+					CmdUpdateMeshLarge (); //send mesh to everyone so they see it right
+				}
+			} 
 
-		if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == true) {
-			if (playerSize2[GetIndex()] == "large") {
-				CmdRemoveMeshLarge (); //send mesh to everyone so they see it right
-			}
-		} 
+			/*if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == true) {
+				if (playerSize2[GetIndex()] == "large") {
+					CmdRemoveMeshLarge (); //send mesh to everyone so they see it right
+				}
+			} */
 
-		//This print is attached to both players and does not work as each will print something different. Make it so these stop on player death. 
-		//Something like a "die" function that sends a variable into here when a player dies so that it stops updating the models.
-		print(lifeGemNOTcritboxGem.activeInHierarchy); // FALSE when gem does not appear; TRUE when it is visible
+			//This print is attached to both players and does not work as each will print something different. Make it so these stop on player death. 
+			//Something like a "die" function that sends a variable into here when a player dies so that it stops updating the models.
 
-		if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == false) {
-			if(playerSize2[GetIndex()] == "small"){
-				CmdUpdateMeshSmall (); //send mesh to everyone so they see it right
+			if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == false) {
+				if(playerSize2[GetIndex()] == "small"){
+					CmdUpdateMeshSmall (); //send mesh to everyone so they see it right
+				}
 			}
+
+			/*if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == true) {
+				if(playerSize2[GetIndex()] == "small"){
+					CmdRemoveMeshSmall (); //send mesh to everyone so they see it right
+				}
+			}*/
+			numPlayers = GameObject.FindGameObjectsWithTag ("Player").Length;
 		}
-
-		if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == true) {
-			if(playerSize2[GetIndex()] == "small"){
-				CmdRemoveMeshSmall (); //send mesh to everyone so they see it right
-			}
-		}*/
 
 		//Camera Rotation THIS FOR SOME REASON DOESN'T SEEM TO BE NETWORKED
 		y = Input.GetAxis("Mouse X");
