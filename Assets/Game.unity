@@ -1028,7 +1028,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31b5d42eff3b6f24c877a158f34746f2, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 31b5d42eff3b6f24c877a158f34746f2, type: 3}
       propertyPath: m_Name
@@ -5890,7 +5890,7 @@ Transform:
   m_LocalScale: {x: 4.908973, y: 1, z: 1.7376602}
   m_Children: []
   m_Father: {fileID: 1755500028}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 42.263, z: 0}
 --- !u!23 &270130258
 MeshRenderer:
@@ -8525,7 +8525,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31b5d42eff3b6f24c877a158f34746f2, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 31b5d42eff3b6f24c877a158f34746f2, type: 3}
       propertyPath: m_Name
@@ -11601,7 +11601,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 797949951}
-  - {fileID: 915182875}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14499,7 +14498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 797949951}
   m_Layer: 0
-  m_Name: 'Potential Game Name: Universal Gemnocide'
+  m_Name: Gem Universe [MMO]/ Universal Gemnocide [battleRoyaleMode]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16391,7 +16390,7 @@ Transform:
   m_LocalScale: {x: 2.8674016, y: 1, z: 1.6649572}
   m_Children: []
   m_Father: {fileID: 1755500028}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 17.820002, z: 0}
 --- !u!23 &906914208
 MeshRenderer:
@@ -16648,35 +16647,6 @@ Transform:
   m_Father: {fileID: 1883783673}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 89, y: 0, z: 90}
---- !u!1 &915182874
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 915182875}
-  m_Layer: 0
-  m_Name: '"King of clods" and "Queen of Diamonds" as highest and lowest ranks, make
-    it so ranked system mirrors with a rank for the top 2% and bottom 2% of players'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &915182875
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 915182874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 625278758}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &922685294
 GameObject:
   m_ObjectHideFlags: 0
@@ -17494,35 +17464,6 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!1 &959942009
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 959942010}
-  m_Layer: 0
-  m_Name: Animate a 'buddhist' sign that forms these rhombii through animation in
-    the logo and then flies out as the logo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &959942010
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 959942009}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1755500028}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &960983915
 Prefab:
   m_ObjectHideFlags: 0
@@ -18704,35 +18645,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033929910}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1045885987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1045885988}
-  m_Layer: 0
-  m_Name: 3 sliders-Color, Opacity and Thickness(how skinny/fat). Basic bodytype selection.
-    Gem placement ~12 positions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1045885988
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1045885987}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 809.5, y: 44.94603, z: -1032.6504}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1755500028}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1046673229
 Prefab:
   m_ObjectHideFlags: 0
@@ -20217,7 +20129,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31b5d42eff3b6f24c877a158f34746f2, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 31b5d42eff3b6f24c877a158f34746f2, type: 3}
       propertyPath: m_Name
@@ -25843,7 +25755,7 @@ Transform:
   m_LocalScale: {x: 2.8674, y: 1, z: 1.6649597}
   m_Children: []
   m_Father: {fileID: 1755500028}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 74.746, z: 0}
 --- !u!23 &1442983290
 MeshRenderer:
@@ -30400,13 +30312,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1755500028}
   m_Layer: 0
-  m_Name: Logo, goes under the -sal in Universal, each black diamond moves away in
-    an opposite direction
+  m_Name: Logo Ideas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1755500028
 Transform:
   m_ObjectHideFlags: 0
@@ -30421,7 +30332,6 @@ Transform:
   - {fileID: 1369622539}
   - {fileID: 83835494}
   - {fileID: 566817221}
-  - {fileID: 959942010}
   - {fileID: 2009385270}
   - {fileID: 1147583849}
   - {fileID: 51533008}
@@ -30432,7 +30342,6 @@ Transform:
   - {fileID: 1442983289}
   - {fileID: 2045217978}
   - {fileID: 2090071062}
-  - {fileID: 1045885988}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32443,8 +32352,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1890441916}
-  m_LocalRotation: {x: -0.28292266, y: -0.6633474, z: -0.65266174, w: -0.2322879}
-  m_LocalPosition: {x: 408.012, y: -28.108383, z: 191.69067}
+  m_LocalRotation: {x: -0.0012983085, y: 0.13154991, z: -0.9907816, w: 0.032322902}
+  m_LocalPosition: {x: -0.029024124, y: 1.4560547, z: 204.38351}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1850453503}
@@ -33613,7 +33522,7 @@ Transform:
   m_LocalScale: {x: 2.8674, y: 1, z: 1.7376585}
   m_Children: []
   m_Father: {fileID: 1755500028}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 70.797005, z: 0}
 --- !u!23 &1942597916
 MeshRenderer:
@@ -34703,7 +34612,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 31b5d42eff3b6f24c877a158f34746f2, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 31b5d42eff3b6f24c877a158f34746f2, type: 3}
       propertyPath: m_Name
@@ -35805,7 +35714,7 @@ Transform:
   m_LocalScale: {x: 2.8674004, y: 1, z: 1.7376602}
   m_Children: []
   m_Father: {fileID: 1755500028}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 6.2730002, z: 0}
 --- !u!23 &2045217979
 MeshRenderer:
@@ -36817,7 +36726,7 @@ Transform:
   m_LocalScale: {x: 4.90897, y: 1, z: 1.7376597}
   m_Children: []
   m_Father: {fileID: 1755500028}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 42.263, z: 0}
 --- !u!23 &2090071063
 MeshRenderer:

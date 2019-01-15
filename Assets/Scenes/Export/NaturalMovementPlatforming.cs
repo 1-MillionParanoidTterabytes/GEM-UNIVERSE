@@ -400,6 +400,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 		 * 100 "VICTORY" POINTS TO WIN, GAIN FROM KILLING OPPONENTS [+1 bonus per kill every 3 kills in a life] AND STAYING ALIVE FOR A CERTAIN AMOUNT OF TIME
 		 * -> EACH kill has a base worth of 3. Plus 1 for every 2 kills that player got and plus 1 for every 2 minutes that player was alive.
 		 * Gain points equal to 2 times the amount of minutes survived, i.e. after 1 minute gain 2 points, after 2 minutes gain 4 points etc. */
+		//THE ABOVE WILL NOT BE IMPLEMENTED, IT PROBABLY WILL NEVER AND SHOULD NEVER BE...
 
 		string gun = activeItem[temp_index]; //what gun to use for the "fire" function. Default pistol
 		string shooter; //who is shooting
@@ -438,8 +439,6 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			Drawline (transform.position, transform.rotation);
 		}
 
-		//THIS ONLY WORKS IF EVERYONE READYS AT THE SAME TIME, IF YOU DON'T THE CLIENT WILL NOT SEE THE PREVIOUS CLIENT'S MODEL
-		//THIS WORKS -> IT USES A COMMAND TO CHANGE THE 'large' BOOLEAN AND THEN THE SYNCVAR AND THE HOOK -- EXTEND IT TO 2 SIMPLE "MESHES"
 		if (playerSize2[GetIndex()] == "large" && gameObject.GetComponent<MeshRenderer> ().enabled == true && Time.time > waitTime2 /*&& islocalplayer*/ ) {//this becomes true after 10 seconds
 			CmdMeshLarge();//This disables the default for the large character, now do another if that makes a different mesh get rendered as "true"
 		}
