@@ -13882,7 +13882,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1937887183379878, guid: 9f90dde7af4c90443a3557ae95534360,
+  m_PlayerPrefab: {fileID: 1215541851914114, guid: 9f90dde7af4c90443a3557ae95534360,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
@@ -32352,8 +32352,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1890441916}
-  m_LocalRotation: {x: -0.0012983085, y: 0.13154991, z: -0.9907816, w: 0.032322902}
-  m_LocalPosition: {x: -0.029024124, y: 1.4560547, z: 204.38351}
+  m_LocalRotation: {x: 0.012714237, y: -0.45311198, z: -0.8911328, w: 0.020254552}
+  m_LocalPosition: {x: 162.3354, y: -347.3322, z: 159.48587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1850453503}
