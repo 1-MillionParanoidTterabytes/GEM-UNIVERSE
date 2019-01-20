@@ -1,4 +1,4 @@
-Final Project, Robert Seth - instructions on how to play.
+Project, Robert Seth - instructions on how to play.
 -----------------------------------------------
 With editor as host:
 
