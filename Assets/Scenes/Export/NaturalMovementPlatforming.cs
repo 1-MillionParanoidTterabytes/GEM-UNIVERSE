@@ -447,7 +447,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			CmdMeshSmall();//This disables the default for the large character, now do another if that makes a different mesh get rendered as "true"
 		}
 
-		print (GameObject.FindGameObjectsWithTag ("Player").Length > numPlayers);
+		//print (GameObject.FindGameObjectsWithTag ("Player").Length > numPlayers);
 		if(GameObject.FindGameObjectsWithTag ("Player").Length > numPlayers){
 		//THIS WORKS, JUST NEED AN IF CHECK SO THAT IT STOPS WHEN A PLAYER DIES
 			if (isLocalPlayer && lifeGemNOTcritboxGem.activeInHierarchy == false) {
@@ -610,7 +610,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	}
 
 	[Command]
-	void CmdFire(Vector3 Direction, Vector3 bulletPosition, Quaternion bulletRotation, string gun, string shooter) //Most of this function was stolen right from the Unity tutorial pages!
+	void CmdFire(Vector3 Direction, Vector3 bulletPosition, Quaternion bulletRotation, string gun, string shooter) 
 	{			
 		//use the shooter passed into here to record who shot the bullet and who was hit other.GetComponent<NetworkIdentity>().netID is the other person
 		if (gun == "pistol") {

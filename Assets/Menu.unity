@@ -335,7 +335,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Small (Glitchy Respawn)
+  m_Text: Small
 --- !u!222 &345848068
 CanvasRenderer:
   m_ObjectHideFlags: 0
