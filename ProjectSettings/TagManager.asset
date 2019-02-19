@@ -28,6 +28,7 @@ TagManager:
   - Goal
   - door
   - Lobby
+  - cubeCounter
   layers:
   - Default
   - TransparentFX

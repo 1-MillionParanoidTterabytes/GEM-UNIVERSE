@@ -6527,7 +6527,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!54 &54766334411892576
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -7561,8 +7561,10 @@ MonoBehaviour:
   hitbox4: {fileID: 1108872557736504}
   hitbox5: {fileID: 1861978713830924}
   hitbox6: {fileID: 1659312042854582}
-  WorldCopy: {fileID: 1896318776657592, guid: 3f285f951ef8a5341b2d36baf7fec3e4, type: 2}
+  WorldCopy: {fileID: 1257170545598820, guid: 3f285f951ef8a5341b2d36baf7fec3e4, type: 2}
   WorldLocation: {fileID: 4312182075527798, guid: 6a28d8daf94c2b24f92f30621af66f3d,
+    type: 2}
+  cubeCounter: {fileID: 1395161889483922, guid: 6fb960b7fc95a6d4f8fbdc11ee6a6809,
     type: 2}
 --- !u!114 &114874234986373304
 MonoBehaviour:
