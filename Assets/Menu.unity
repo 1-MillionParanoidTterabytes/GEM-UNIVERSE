@@ -1424,7 +1424,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ready for Battle
+  m_Text: Enter Server
 --- !u!222 &2042982819
 CanvasRenderer:
   m_ObjectHideFlags: 0
