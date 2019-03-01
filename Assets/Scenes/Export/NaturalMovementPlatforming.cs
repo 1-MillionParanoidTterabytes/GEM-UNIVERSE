@@ -21,6 +21,11 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	[SerializeField]
 	private GameObject rotationChecker;
 
+	[SerializeField]
+	private GameObject waterCameras;
+	[SerializeField]
+	private GameObject playerCamera;
+
 	[Header("Movement")]
 	[SerializeField]
 	private float _acceleration;
@@ -99,6 +104,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 		sensitivity = -1.5f;
 		waitTime2 = Time.time + 1;
+
 	}
 		
 	/*//check to see if the player is in contact with the ground, works on slopes too!
@@ -252,6 +258,11 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	private void Update()
 	{
 		//print (!isLocalPlayer);
+		if (isServer) {
+			playerCamera.SetActive (false);
+			waterCameras.SetActive (false);
+		}
+
 		if (!isLocalPlayer) {
 			camera.enabled = false;
 			canvas.SetActive (false);
