@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChangeScene : MonoBehaviour {
+
+	public InputField usernameInput;
 
 	public void LoadByIndex(int sceneIndex)
 	{
@@ -20,5 +23,10 @@ public class ChangeScene : MonoBehaviour {
 	public void SetLarge(int pointless)
 	{
 		DataToSendToGame.size = "large";
+	}
+	public void SetUsername(int pointless)
+	{
+		DataToSendToGame.username = usernameInput.text;
+		//print (DataToSendToGame.username);
 	}
 }

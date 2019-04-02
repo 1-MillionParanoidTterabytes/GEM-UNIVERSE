@@ -9,4 +9,5 @@ public class DataToSendToGame : MonoBehaviour {
 	public static int thickness; //how obese character is
 	public static string color; //base color 
 	//public static string outfit; this don't worry about until later
+	public static string username; 
 }
