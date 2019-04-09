@@ -272,6 +272,14 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			return;
 		}
 
+		//Escape quits this game
+		if (!isServer && Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.Q)) {
+			if(!isServer){
+				NetworkManager.singleton.StopClient();
+				//Application.Quit (); //if the password is wrong, crash!
+			}
+		}
+	
 		Cursor.lockState = CursorLockMode.Locked;
 
 

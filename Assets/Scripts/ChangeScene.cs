@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ChangeScene : MonoBehaviour {
 
 	public InputField usernameInput;
+	public InputField passwordInput;
 
 	public void LoadByIndex(int sceneIndex)
 	{
@@ -24,9 +25,15 @@ public class ChangeScene : MonoBehaviour {
 	{
 		DataToSendToGame.size = "large";
 	}
+
 	public void SetUsername(int pointless)
 	{
 		DataToSendToGame.username = usernameInput.text;
 		//print (DataToSendToGame.username);
+	}
+
+	public void SetPassword(int pointlesser)
+	{
+		DataToSendToGame.password = passwordInput.text;
 	}
 }
