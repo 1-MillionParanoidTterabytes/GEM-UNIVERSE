@@ -1,7 +1,5 @@
 fileFormatVersion: 2
-guid: 8199fb6500c8d354a8bc7295406ee5df
-timeCreated: 1541970123
-licenseType: Free
+guid: aa19326d6a71fcf45990e65d537e1ee5
 TextureImporter:
   fileIDToRecycleName:
     8900000: generatedCubemap
@@ -46,8 +44,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
