@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -107,6 +108,11 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 
 	}
 		
+	[Command]
+	void CmdDebug(string toPrintThis){
+		print(toPrintThis);
+	}
+
 	/*//check to see if the player is in contact with the ground, works on slopes too!
 	//as long as the player collides with the ground then isGround is true
 	void OnCollisionStay(Collision hit)
@@ -272,9 +278,47 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			return;
 		}
 
+		int Line_of_the_username_in_the_file = 0;
 		//Escape quits this game
 		if (!isServer && Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.Q)) {
 			if(!isServer){
+				/*for(A FOR LOOP){
+					if (fileget() == DataToSendToGame.username) {
+						Line_of_the_username_in_the_file = <insert number here>;
+					}
+				}*/
+
+				string path = "Assets/Resources/test.txt";
+
+				/*static void lineChanger(string newText, string fileName . int line_to_edit) {
+				*/
+
+				StreamReader reader = new StreamReader(path); 
+				string text2 = " ";
+
+				int incrementing_counter = 0;
+				bool nameFound = false;
+				//MAKE THE FILE [USERNAME \n PASSWORD \n DATA \n USERNAME \n PASSWORD \n DATA \n etc... ]
+				while (text2 != null) {
+					incrementing_counter++;
+					text2 = reader.ReadLine(); //Username
+					if (text2 == DataToSendToGame.username) {
+						Line_of_the_username_in_the_file = incrementing_counter;
+						nameFound = true;
+					}
+				}
+				reader.Close();
+
+
+				int line_to_edit = Line_of_the_username_in_the_file; //THERE IS NO '0' INDEX
+
+				if (nameFound == true) {
+					string[] arrLine = File.ReadAllLines (path);
+					arrLine [line_to_edit + 1] = "" + transform.position.x + "," + transform.position.y + "," + transform.position.z;
+					File.WriteAllLines (path, arrLine);
+				}
+				/*}*/
+
 				NetworkManager.singleton.StopClient();
 				//Application.Quit (); //if the password is wrong, crash!
 			}
@@ -743,8 +787,4 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 		yield return new WaitForSeconds (2.5f);
 		Destroy (bullet);
 	}
-	//public override void OnStartLocalPlayer()
-	//{
-	//	GetComponent<MeshRenderer>().material.color = Color.blue;
-	//}
 }
