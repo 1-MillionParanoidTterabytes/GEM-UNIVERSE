@@ -28,12 +28,12 @@ public class ChangeScene : MonoBehaviour {
 
 	public void SetUsername(int pointless)
 	{
-		DataToSendToGame.username = usernameInput.text;
+		DataToSendToGame.username = (usernameInput.text).Replace("$", "_");//Usernames cannot have $ signs
 		//print (DataToSendToGame.username);
 	}
 
 	public void SetPassword(int pointlesser)
 	{
-		DataToSendToGame.password = passwordInput.text;
+		DataToSendToGame.password = (passwordInput.text+"$");
 	}
 }

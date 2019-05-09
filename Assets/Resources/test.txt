@@ -1,73 +1,15 @@
-grgt5
-123456
-0, 0, 0
-grgt7
-42
-0, 0, 0
-LINE CHANGED!!!!
-123456
-0, 0, 0
-ttyttr
-45
-LINE CHANGED!!!!
-qrrbbrbrbrbrb
-342b
-0, 0, 0
-43251
 cc
+cc$
 0, 0, 0
-423b4wn2
-ccc
+dd
+dd$
 0, 0, 0
-umn56n
-123456
+ee
+ee$
 0, 0, 0
-b52b4b2
-vcvv
-1988.767,56.30327,1151.249
-3333333332
-21v1
-0, 0, 0
-0000000000000
-123456
-0, 0, 0
-c132b2bv34b1n3v
-ert23v32
-0, 0, 0
-2222222222222121
-21
-0, 0, 0
-5133215
-c32c
-0, 0, 0
-cc32c2c
-ccc
-1996.753,56.30327,1137.939
-PLAYER DISCONNECTED!!!
-52352
-3c232c
-0, 0, 0
-33333331212121
-12
-0, 0, 0
-PLAYER DISCONNECTED!!!
-1212122222
-11
-0, 0, 0
-PLAYER DISCONNECTED!!!
-PLAYER DISCONNECTED!!!
-testu23
-qqqq
-0, 0, 0
-cccccccc
-123456
-0, 0, 0
-hihnoiho
-123456
-0, 0, 0
-werew
-cc
-0, 0, 0
- 32v32v 32
-v321c2c1
-0, 0, 0
+gg
+gg$
+1998.335,57.83273,1140.088
+qq
+qq$
+1998.556,57.86568,1139.099

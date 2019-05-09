@@ -78,6 +78,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	private Text items;
 	[SerializeField]
 	private AudioListener listener;
+	private int Line_of_the_username_in_the_file = 0;
 
 	[Header("Models")]
 	[SerializeField]
@@ -87,6 +88,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	[SerializeField]
 	private GameObject lifeGemNOTcritboxGem;
 
+	private bool Save_and_quit = false;
 	private int numPlayers = 0;
 	private Rect position;
 	private float waitTime;
@@ -106,6 +108,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 		sensitivity = -1.5f;
 		waitTime2 = Time.time + 1;
 
+		
 	}
 		
 	[Command]
@@ -140,7 +143,12 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	bool lerp = false;
 
 	void OnTriggerEnter(Collider other){
-		
+		if (other.tag == "save_and_quit") {
+			Save_and_quit = true;
+		} else {
+			Save_and_quit = false;
+		}
+
 		for (int i = 0; i < Health.players.Length; i++) {
 			if (Health.players [i] == (gameObject.GetComponent<NetworkIdentity> ().netId).ToString()) {
 				index = i; 
@@ -260,6 +268,51 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 		gameObject.name = "small";
 	}
 
+	[Command]
+	void CmdRecordData(float playerX, float playerY, float playerZ, string toFindUsername){
+		RECORDSTUFF (playerX, playerY, playerZ, toFindUsername);
+	}
+
+	void RECORDSTUFF(float playerX, float playerY, float playerZ, string toFindUsername){
+		string path = "Assets/Resources/test.txt";
+
+		/*static void lineChanger(string newText, string fileName . int line_to_edit) {
+				*/
+
+		StreamReader reader = new StreamReader(path); 
+		string text2 = " ";
+
+		int incrementing_counter = 0;
+		bool nameFound = false;
+		//MAKE THE FILE [USERNAME \n PASSWORD \n DATA \n USERNAME \n PASSWORD \n DATA \n etc... ]
+		while (text2 != null) {
+			incrementing_counter++;
+			text2 = reader.ReadLine(); //Username
+			//Debug.Log(toFindUsername);
+			if (text2 == toFindUsername) {
+				//Debug.Log ("(OJPI#NKLC");
+				Line_of_the_username_in_the_file = incrementing_counter;
+				Debug.Log (Line_of_the_username_in_the_file);
+				nameFound = true;
+			}
+		}
+		reader.Close();
+
+
+		int line_to_edit = Line_of_the_username_in_the_file; //THERE IS NO '0' INDEX
+
+		if (nameFound == true) {
+			string[] arrLine = File.ReadAllLines (path);
+			for (int ik = 0; ik < arrLine.Length; ik++) {
+				print (arrLine [ik]);
+			}
+			arrLine [line_to_edit + 1] = "" + (playerX+2) + "," + playerY + "," + playerZ;
+			File.WriteAllLines (path, arrLine);
+		}
+
+		/*}*/
+	}
+		
 	private float t = 0;
 	private void Update()
 	{
@@ -269,6 +322,115 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			waterCameras.SetActive (false);
 		}
 
+		//THE USERNAME AND PASSWORD CANNOT BE THE SAME AS AN ALREADY EXISTING ONE. "TQT" as username, also cannot have "TQT" as password
+
+		//Escape quits this game
+		/*if (!isServer && Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.Q)) {
+			//if(!isServer){
+				//for(A FOR LOOP){
+				//	if (fileget() == DataToSendToGame.username) {
+				//		Line_of_the_username_in_the_file = <insert number here>;
+				//	}
+				//}
+			
+			//string path = "Assets/Resources/test.txt";
+
+			//static void lineChanger(string newText, string fileName . int line_to_edit) {
+				
+			string path = "Assets/Resources/test.txt";
+
+			StreamReader reader = new StreamReader(path); 
+			string text2 = " ";
+
+			int incrementing_counter = 0;
+			bool nameFound = false;
+			//MAKE THE FILE [USERNAME \n PASSWORD \n DATA \n USERNAME \n PASSWORD \n DATA \n etc... ]
+			while (text2 != null) {
+				incrementing_counter++;
+				text2 = reader.ReadLine(); //Username
+				if (text2 == DataToSendToGame.username) {
+					Line_of_the_username_in_the_file = incrementing_counter;
+					nameFound = true;
+				}
+			}
+			reader.Close();
+
+
+			int line_to_edit = Line_of_the_username_in_the_file; //THERE IS NO '0' INDEX
+
+			if (nameFound == true) {
+				string[] arrLine = File.ReadAllLines (path);
+				arrLine [line_to_edit + 1] = "" + transform.position.x + "," + transform.position.y + "," + transform.position.z;
+				File.WriteAllLines (path, arrLine);
+			}
+
+				
+
+				NetworkManager.singleton.StopClient();
+				//Application.Quit (); //if the password is wrong, crash!
+			//}
+		}*/
+
+
+		//int Line_of_the_username_in_the_file = 0;
+		//Escape quits this game
+		if (Save_and_quit == true) {
+			//if(!isServer){
+				/*for(A FOR LOOP){
+					if (fileget() == DataToSendToGame.username) {
+						Line_of_the_username_in_the_file = <insert number here>;
+					}
+				}*/
+			//Debug.Log ("OPIWNKEFMPJIL");
+			if (!isServer) {
+				CmdRecordData (transform.position.x, transform.position.y, transform.position.z, DataToSendToGame.username);
+			}
+				/*string path = "Assets/Resources/test.txt";
+				System.IO.StreamReader reader = new System.IO.StreamReader (path);
+				
+				//static void lineChanger(string newText, string fileName . int line_to_edit) {
+
+
+				//StreamReader reader = new StreamReader(path); 
+				string text2 = " ";
+
+				int incrementing_counter = 0;
+				bool nameFound = false;
+				//MAKE THE FILE [USERNAME \n PASSWORD \n DATA \n USERNAME \n PASSWORD \n DATA \n etc... ]
+				while (text2 != null) {
+					incrementing_counter++;
+					text2 = reader.ReadLine(); //Username, this needs to loop back to the file start
+					if (text2 == DataToSendToGame.username) {
+						Line_of_the_username_in_the_file = incrementing_counter;
+
+					//AmmoText2.text = "q" + Line_of_the_username_in_the_file;
+						nameFound = true;
+					}
+				}
+				//end of reading
+				//reader.DiscardBufferedData();
+				reader.BaseStream.Position = 0; //Sets reader to start of file 
+				reader.Close();
+
+				int line_to_edit = Line_of_the_username_in_the_file; //THERE IS NO '0' INDEX
+
+				if (nameFound == true) {
+					string[] arrLine = File.ReadAllLines (path);
+					arrLine [line_to_edit + 1] = "" + (transform.position.x+5) + "," + transform.position.y + "," + transform.position.z;
+					File.WriteAllLines (path, arrLine);
+				}
+				//}
+			//line_to_edit = 0;
+
+				//NetworkManager.singleton.StopClient();*/
+				
+			if(isLocalPlayer){
+				Application.Quit (); //if the password is wrong, crash!
+			}
+			//}
+			//NetworkManager.singleton.StopClient();
+		}
+	
 		if (!isLocalPlayer) {
 			camera.enabled = false;
 			canvas.SetActive (false);
@@ -278,52 +440,7 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			return;
 		}
 
-		int Line_of_the_username_in_the_file = 0;
-		//Escape quits this game
-		if (!isServer && Input.GetKey(KeyCode.Escape) && Input.GetKey(KeyCode.Q)) {
-			if(!isServer){
-				/*for(A FOR LOOP){
-					if (fileget() == DataToSendToGame.username) {
-						Line_of_the_username_in_the_file = <insert number here>;
-					}
-				}*/
 
-				string path = "Assets/Resources/test.txt";
-
-				/*static void lineChanger(string newText, string fileName . int line_to_edit) {
-				*/
-
-				StreamReader reader = new StreamReader(path); 
-				string text2 = " ";
-
-				int incrementing_counter = 0;
-				bool nameFound = false;
-				//MAKE THE FILE [USERNAME \n PASSWORD \n DATA \n USERNAME \n PASSWORD \n DATA \n etc... ]
-				while (text2 != null) {
-					incrementing_counter++;
-					text2 = reader.ReadLine(); //Username
-					if (text2 == DataToSendToGame.username) {
-						Line_of_the_username_in_the_file = incrementing_counter;
-						nameFound = true;
-					}
-				}
-				reader.Close();
-
-
-				int line_to_edit = Line_of_the_username_in_the_file; //THERE IS NO '0' INDEX
-
-				if (nameFound == true) {
-					string[] arrLine = File.ReadAllLines (path);
-					arrLine [line_to_edit + 1] = "" + transform.position.x + "," + transform.position.y + "," + transform.position.z;
-					File.WriteAllLines (path, arrLine);
-				}
-				/*}*/
-
-				NetworkManager.singleton.StopClient();
-				//Application.Quit (); //if the password is wrong, crash!
-			}
-		}
-	
 		Cursor.lockState = CursorLockMode.Locked;
 
 
@@ -372,8 +489,8 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 		 
 		LayerMask mask = LayerMask.GetMask ("PickUPS");
 
-			//LERPING 
-		if (Time.time > waitTime2 + 0.5f && gameObject.activeInHierarchy) {
+			//LIGHT MOVEMENT, SPAWN AT EACH PLAYER'S POSITION!!!! THIS WILL SPAWN IT AT THE PAD POSITIONS
+		/*if (Time.time > waitTime2 + 0.5f && gameObject.activeInHierarchy) {
 			var Clones = GameObject.FindGameObjectsWithTag ("Light2");//Destroy all solid light
 			for (int i = 0; i < Clones.Length; i++) {
 				Destroy (Clones [i]);
@@ -411,8 +528,9 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 			for(int i = 0; i < Clones.Length; i++){
 				Destroy (Clones [i]);
 			}
-		}
+		}*/
 		//END OF LERPING
+
 		//can't move during first 2 seconds
 		if (Time.time < waitTime2 + 1) {
 			return;

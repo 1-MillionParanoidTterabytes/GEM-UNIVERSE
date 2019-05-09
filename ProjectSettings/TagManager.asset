@@ -29,6 +29,7 @@ TagManager:
   - door
   - Lobby
   - cubeCounter
+  - save_and_quit
   layers:
   - Default
   - TransparentFX
