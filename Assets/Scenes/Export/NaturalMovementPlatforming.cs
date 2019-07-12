@@ -314,6 +314,16 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 	}
 		
 	private float t = 0;
+
+	/*
+	IEnumerator exitGame(){
+		NetworkManager.singleton.client.Disconnect (); //THIS LEAVES BEHIND A GAMEOBJECT THAT SHOULDN'T BE THERE ?
+		yield return new WaitForSeconds(1);
+		Application.Quit (); //THIS WORKS BUT CAUSES A TIMEOUT
+		yield return null;
+	}
+	*/
+
 	private void Update()
 	{
 		//print (!isLocalPlayer);
@@ -425,7 +435,29 @@ public class NaturalMovementPlatforming : NetworkBehaviour
 				//NetworkManager.singleton.StopClient();*/
 				
 			if(isLocalPlayer){
-				Application.Quit (); //if the password is wrong, crash!
+				//NetworkManager.Destroy (gameObject);\
+
+				//THIS (THE COMMENTED OUT STUFF) PREVENTS THE TIMEOUT BUT DOES NOT SAVE THE DATA 
+				//Destroy(gameObject);
+				//transform.position = new Vector3 (0, 0, 0);
+
+				//NetworkManager.singleton.client.Disconnect (); //THIS LEAVES BEHIND A GAMEOBJECT THAT SHOULDN'T BE THERE ?
+				//WaitForSeconds(1);
+				Application.Quit (); //THIS WORKS BUT CAUSES A TIMEOUT -- ONLY FOR THE EDITOR -- FOR THE BUILD AND RUN AS SERVER IT IS FINE
+
+				//StartCoroutine (exitGame());
+
+				//NOT SURE IF THE BELOW LINE IS NECESSARY -- CAN'T TELL IF ON THE VM IF THE CLIENTS CAN CONNECT AFTER DISCONNECTING OR NOT 
+
+
+				//Application.Quit (); //if the password is wrong, crash!
+			/*if (!isServer) {
+				NetworkClient.ShutdownAll();
+
+				//then destroy me
+				Destroy(gameObject);
+			}*/
+
 			}
 			//}
 			//NetworkManager.singleton.StopClient();
